@@ -98,7 +98,7 @@ def randomize_parameters():
     random_governorate = random.choice(governorate_values)
     Government=governorate_values.index(random_governorate)
     Gender = random.randint(0, 1)
-    retun Year,Month,Day,Government,Gender
+    return Year,Month,Day,Government,Gender
     
 
 # Streamlit app
