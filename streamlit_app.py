@@ -3,7 +3,6 @@ import streamlit as st
 import random
 import asyncio
 import time
-import pyautogui
 
 # Egyptian governorate codes and names
 states = {
@@ -114,7 +113,7 @@ st.title("Egyptian ID Generator")
 if st.sidebar.button("Randomize Parameters"):
     st.cache_resource.clear()
     randomize_parameters.clear()
-    pyautogui.hotkey("ctrl","F5")
+    st.rerun()
     #time.sleep(10)
     #await asyncio.sleep(1)
     # Execute the function
