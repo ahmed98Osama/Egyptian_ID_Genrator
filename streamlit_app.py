@@ -37,6 +37,19 @@ states = {
 # Weights for check digit calculation
 weights = [2, 7, 6, 5, 4, 3, 2, 7, 6, 5, 4, 3, 2]
 
+# Function to randomize parameters
+@st.cache_data
+def randomize_parameters():
+    Year = random.randint(1950, 2005)
+    Month = random.randint(1, 12)
+    Day = random.randint(1, 28)
+    governorate_values = list(states.keys())
+    random_governorate = random.choice(governorate_values)
+    Government=governorate_values.index(random_governorate)
+    Gender = random.randint(0, 1)
+    return Year,Month,Day,Government,Gender
+    
+
 Year,Month,Day,Government,Gender=randomize_parameters()
 
 year = st.sidebar.slider("Year", 1950, 2005, key="year_slider",value=Year)
@@ -88,18 +101,7 @@ def generate_egyptian_ids(num_ids=10):
 
     return generated_ids
     
-# Function to randomize parameters
-@st.cache_data
-def randomize_parameters():
-    Year = random.randint(1950, 2005)
-    Month = random.randint(1, 12)
-    Day = random.randint(1, 28)
-    governorate_values = list(states.keys())
-    random_governorate = random.choice(governorate_values)
-    Government=governorate_values.index(random_governorate)
-    Gender = random.randint(0, 1)
-    return Year,Month,Day,Government,Gender
-    
+
 
 # Streamlit app
 st.title("Egyptian ID Generator")
