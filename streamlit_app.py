@@ -59,14 +59,12 @@ month = st.sidebar.slider("Month", 1, 12, key="month_slider",value=Month)
 day = st.sidebar.slider("Day", 1, 28, key="day_slider",value=Day)
 governorate_dropdown = st.sidebar.selectbox("Governorate", list(states.values()), key="governorate_dropdown",index=Government)
 gender_radio = st.sidebar.radio("Gender", ['Male', 'Female'], key="gender_radio",index=Gender)
+num_ids = st.sidebar.slider("Number of IDs to generate", 1, 100, value=Num, key="num_ids_slider")
 
 
 def generate_id_without_check_digit():
 
-    
-
-    selected_governorate = [code for code, name in states.items() if name == governorate_dropdown][0]
-   
+    selected_governorate = [code for code, name in states.items() if name == governorate_dropdown][0]   
     # Random 3 digits
     random_part = str(random.randint(0, 999)).zfill(3)
 
@@ -116,8 +114,6 @@ if st.sidebar.button("Randomize Parameters"):
     #generate_egyptian_ids(Num)
 
 
-
-num_ids = st.sidebar.slider("Number of IDs to generate", 1, 100, Num, key="num_ids_slider")
 generated_ids = generate_egyptian_ids(num_ids)
 
 st.write("Generated IDs:")
