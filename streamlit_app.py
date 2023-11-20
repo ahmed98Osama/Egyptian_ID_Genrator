@@ -51,10 +51,11 @@ def randomize_parameters():
     random_governorate = random.choice(governorate_values)
     Government=governorate_values.index(random_governorate)
     Gender = random.randint(0, 1)
-    return Year,Month,Day,Government,Gender
+    Num=10
+    return Year,Month,Day,Government,Gender,Num
     
 
-Year,Month,Day,Government,Gender=randomize_parameters()
+Year,Month,Day,Government,Gender,Num=randomize_parameters()
 
 year = st.sidebar.slider("Year", 1950, 2005, key="year_slider",value=Year)
 month = st.sidebar.slider("Month", 1, 12, key="month_slider",value=Month)
@@ -117,11 +118,11 @@ if st.sidebar.button("Randomize Parameters"):
     #await asyncio.sleep(1)
     # Execute the function
     randomize_parameters()
-    generate_egyptian_ids()
+    generate_egyptian_ids(Num)
 
 
 
-num_ids = st.sidebar.slider("Number of IDs to generate", 1, 100, 10, key="num_ids_slider")
+num_ids = st.sidebar.slider("Number of IDs to generate", 1, 100, Num, key="num_ids_slider")
 generated_ids = generate_egyptian_ids(num_ids)
 
 st.write("Generated IDs:")
