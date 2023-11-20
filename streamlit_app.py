@@ -1,4 +1,3 @@
-
 import streamlit as st
 import random
 
@@ -46,30 +45,42 @@ def randomize_parameters():
     Day = random.randint(1, 28)
     governorate_values = list(states.keys())
     random_governorate = random.choice(governorate_values)
-    Government=governorate_values.index(random_governorate)
+    Government = governorate_values.index(random_governorate)
     Gender = random.randint(0, 1)
-    Num=17
-    return Year,Month,Day,Government,Gender,Num
-    
+    Num = 17
+    return Year, Month, Day, Government, Gender, Num
 
-Year,Month,Day,Government,Gender,Num=randomize_parameters()
 
-year = st.sidebar.slider("Year", 1950, 2005,value=Year, key="year_slider")
-month = st.sidebar.slider("Month", 1, 12,value=Month, key="month_slider")
-day = st.sidebar.slider("Day", 1, 28,value=Day, key="day_slider")
-governorate_dropdown = st.sidebar.selectbox("Governorate", list(states.values()),index=Government, key="governorate_dropdown")
-gender_radio = st.sidebar.radio("Gender", ['Male', 'Female'],index=Gender, key="gender_radio")
-num_ids = st.sidebar.slider("Number of IDs to generate", 1, 100, value=Num, key="num_ids_slider")
+Year, Month, Day, Government, Gender, Num = randomize_parameters()
+
+year = st.sidebar.slider("Year", 1950, 2005, value=Year, key="year_slider")
+month = st.sidebar.slider("Month", 1, 12, value=Month, key="month_slider")
+day = st.sidebar.slider("Day", 1, 28, value=Day, key="day_slider")
+governorate_dropdown = st.sidebar.selectbox(
+    "Governorate", list(states.values()), index=Government, key="governorate_dropdown"
+)
+gender_radio = st.sidebar.radio(
+    "Gender", ["Male", "Female"], index=Gender, key="gender_radio"
+)
+num_ids = st.sidebar.slider(
+    "Number of IDs to generate", 1, 100, value=Num, key="num_ids_slider"
+)
 
 
 def generate_id_without_check_digit():
 
-    selected_governorate = [code for code, name in states.items() if name == governorate_dropdown][0]   
+    selected_governorate = [
+        code for code, name in states.items() if name == governorate_dropdown
+    ][0]
     # Random 3 digits
     random_part = str(random.randint(0, 999)).zfill(3)
 
     # Random gender and gender-specific number
-    gender_number = random.choice(range(0, 10, 2)) if gender_radio == 'Female' else random.choice(range(1, 10, 2))
+    gender_number = (
+        random.choice(range(0, 10, 2))
+        if gender_radio == "Female"
+        else random.choice(range(1, 10, 2))
+    )
 
     # Set the first digit based on the year
     first_digit = "3" if year >= 2000 else "2"
@@ -77,6 +88,7 @@ def generate_id_without_check_digit():
     id_without_check = f"{first_digit}{year % 100:02d}{month:02d}{day:02d}{selected_governorate}{random_part}{gender_number}"
 
     return id_without_check
+
 
 def generate_egyptian_ids(num_ids=10):
     generated_ids = []
@@ -86,7 +98,9 @@ def generate_egyptian_ids(num_ids=10):
 
         try:
             # Calculate check digit
-            step1 = sum(int(num) * weight for num, weight in zip(id_without_check, weights))
+            step1 = sum(
+                int(num) * weight for num, weight in zip(id_without_check, weights)
+            )
             step2 = step1 / 11
             step3 = int(step2) * 11
             step4 = step1 - step3
@@ -97,10 +111,11 @@ def generate_egyptian_ids(num_ids=10):
 
             generated_ids.append(id_number)
         except ValueError:
-            st.warning(f"Error generating ID {idx}: Invalid characters in generated values.")
+            st.warning(
+                f"Error generating ID {idx}: Invalid characters in generated values."
+            )
 
     return generated_ids
-    
 
 
 # Streamlit app
@@ -110,14 +125,17 @@ if st.sidebar.button("Randomize Parameters"):
     st.cache_resource.clear()
     randomize_parameters.clear()
     st.rerun()
-    #randomize_parameters()
-    #generate_egyptian_ids(Num)
+    # randomize_parameters()
+    # generate_egyptian_ids(Num)
 
 
 generated_ids = generate_egyptian_ids(num_ids)
 
-st.write("Generated IDs:")
+
+num_columns = 2
+columns = st.columns(num_columns)
+
 for idx, id_number in enumerate(generated_ids, start=1):
-    #governorate_name = states[id_number[7:9]]
-    #st.write(f"Generated ID {idx}: {id_number} - Governorate: {governorate_name}")
-    st.write(id_number )
+    # governorate_name = states[id_number[7:9]]
+    # st.write(f"Generated ID {idx}: {id_number} - Governorate: {governorate_name}")
+    columns[idx % num_columns].write(f"Generated ID {idx}: {id_number}")
