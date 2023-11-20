@@ -119,7 +119,7 @@ def generate_egyptian_ids(num_ids=10):
 
 
 # Streamlit app
-st.write("<h1><span style='color: red'>Egyptian</span> <span style='color: gold'> ID</span><span style='color: white'> Number</span><span style='color: black'> Generator .</span></h1>",
+st.write("<h1><span style='color: red'>Egyptian</span> <span style='color: gold'> ID</span><span style='color: white'> Number</span><span style='color: green'> Generator .</span></h1>",
          unsafe_allow_html=True,
 )
 st.write(
