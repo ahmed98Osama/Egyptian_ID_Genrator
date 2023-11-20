@@ -2,6 +2,7 @@
 import streamlit as st
 import random
 
+
 # Egyptian governorate codes and names
 states = {
     "01": "Cairo",
@@ -47,8 +48,8 @@ def randomize_parameters():
     random_governorate = random.choice(governorate_values)
     Government=governorate_values.index(random_governorate)
     Gender = random.randint(0, 1)
+    randomize_parameters.clear()
     st.cache_resource.clear()
-    randomize_parameters()
     return Year,Month,Day,Government,Gender
     
 
@@ -110,6 +111,8 @@ st.title("Egyptian ID Generator")
 # Add a "Randomize" button
 if st.sidebar.button("Randomize Parameters"):
     randomize_parameters.clear()
+    st.cache_resource.clear()
+    randomize_parameters()
 
 
 num_ids = st.sidebar.slider("Number of IDs to generate", 1, 100, 10, key="num_ids_slider")
