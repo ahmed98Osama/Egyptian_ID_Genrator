@@ -123,7 +123,7 @@ st.write("<h1><span style='color: red'>Egyptian</span> <span style='color: gold'
          unsafe_allow_html=True,
 )
 st.write(
-    "<h6>Created by  <a href='https://github.com/ahmed98Osama' style='color: skyblue' target='_blank'>Ahmed Osama</a>,  and assisted by <span style='color: #1b8266'>ChatGPT</span>.</h6>",
+    "<h6>Created by  <a href='https://github.com/ahmed98Osama' style='color: skyblue' target='_blank'>Ahmed Farouk</a>,  and assisted by <span style='color: #1b8266'>ChatGPT</span>.</h6>",
     unsafe_allow_html=True,
 )
 # Add a "Randomize" button
