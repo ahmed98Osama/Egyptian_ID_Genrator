@@ -117,11 +117,11 @@ if st.sidebar.button("Randomize Parameters"):
         # Execute the function
         randomize_parameters() 
     else:
-    # Print a message
-    st.write("The cache is not cleared yet.")
-    # Wait for 1 second
-    time.sleep(1)
-    randomize_parameters() 
+        # Print a message
+        st.write("The cache is not cleared yet.")
+        # Wait for 1 second
+        time.sleep(1)
+        randomize_parameters() 
 
 
 num_ids = st.sidebar.slider("Number of IDs to generate", 1, 100, 10, key="num_ids_slider")
