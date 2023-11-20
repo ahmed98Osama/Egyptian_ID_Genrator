@@ -144,7 +144,7 @@ columns = st.columns(num_columns)
 for idx, id_number in enumerate(generated_ids):
     # governorate_name = states[id_number[7:9]]
     # st.write(f"Generated ID {idx}: {id_number} - Governorate: {governorate_name}")
-    columns[idx % num_columns].write(f"Generated ID : {id_number}")
+    columns[idx % num_columns].write(f"Generated ID : <span style='color: green'>{id_number}</span>")
 
 
 
