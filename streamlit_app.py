@@ -109,8 +109,8 @@ def generate_egyptian_ids(num_ids=10):
 st.title("Egyptian ID Generator")
 # Add a "Randomize" button
 if st.sidebar.button("Randomize Parameters"):
-    #st.cache_resource.clear()
-    randomize_parameters.clear()
+    st.cache_resource.clear()
+    #randomize_parameters.clear()
     st.rerun()
     #randomize_parameters()
     #generate_egyptian_ids(Num)
