@@ -1,8 +1,6 @@
 
 import streamlit as st
 import random
-import asyncio
-import time
 
 # Egyptian governorate codes and names
 states = {
@@ -114,10 +112,7 @@ if st.sidebar.button("Randomize Parameters"):
     #st.cache_resource.clear()
     #randomize_parameters.clear()
     st.rerun()
-    #time.sleep(10)
-    #await asyncio.sleep(1)
-    # Execute the function
-    #randomize_parameters()
+    randomize_parameters()
     #generate_egyptian_ids(Num)
 
 
