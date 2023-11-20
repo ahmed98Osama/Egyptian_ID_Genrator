@@ -107,6 +107,7 @@ def generate_egyptian_ids(num_ids=10):
 st.title("Egyptian ID Generator")
 # Add a "Randomize" button
 if st.sidebar.button("Randomize Parameters"):
+    func.clear()
     randomize_parameters()
 
 num_ids = st.sidebar.slider("Number of IDs to generate", 1, 100, 10, key="num_ids_slider")
