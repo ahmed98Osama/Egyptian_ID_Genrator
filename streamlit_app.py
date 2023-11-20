@@ -37,11 +37,18 @@ states = {
 # Weights for check digit calculation
 weights = [2, 7, 6, 5, 4, 3, 2, 7, 6, 5, 4, 3, 2]
 
+Year,Month,Day,Government,Gender=randomize_parameters()
+
+year = st.sidebar.slider("Year", 1950, 2005, key="year_slider",value=Year)
+month = st.sidebar.slider("Month", 1, 12, key="month_slider",value=Month)
+day = st.sidebar.slider("Day", 1, 28, key="day_slider",value=Day)
+governorate_dropdown = st.sidebar.selectbox("Governorate", list(states.values()), key="governorate_dropdown",index=Government)
+gender_radio = st.sidebar.radio("Gender", ['Male', 'Female'], key="gender_radio",index=Gender)
 
 
 def generate_id_without_check_digit():
 
-    randomize_parameters()
+    
 
     selected_governorate = [code for code, name in states.items() if name == governorate_dropdown][0]
    
@@ -82,20 +89,16 @@ def generate_egyptian_ids(num_ids=10):
     return generated_ids
     
 # Function to randomize parameters
-@st.cache
+@st.cache_data
 def randomize_parameters():
     Year = random.randint(1950, 2005)
     Month = random.randint(1, 12)
     Day = random.randint(1, 28)
     governorate_values = list(states.keys())
     random_governorate = random.choice(governorate_values)
+    Government=governorate_values.index(random_governorate)
     Gender = random.randint(0, 1)
-    year = st.sidebar.slider("Year", 1950, 2005, key="year_slider",value=Year)
-    month = st.sidebar.slider("Month", 1, 12, key="month_slider",value=Month)
-    day = st.sidebar.slider("Day", 1, 28, key="day_slider",value=Day)
-    governorate_dropdown = st.sidebar.selectbox("Governorate", list(states.values()), key="governorate_dropdown",index=governorate_values.index(random_governorate))
-    gender_radio = st.sidebar.radio("Gender", ['Male', 'Female'], key="gender_radio",index=Gender)
-
+    retun Year,Month,Day,Government,Gender
     
 
 # Streamlit app
