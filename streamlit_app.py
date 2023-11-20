@@ -48,7 +48,7 @@ def randomize_parameters():
     random_governorate = random.choice(governorate_values)
     Government=governorate_values.index(random_governorate)
     Gender = random.randint(0, 1)
-    Num=random.randint(1, 12)
+    Num=11
     return Year,Month,Day,Government,Gender,Num
     
 
