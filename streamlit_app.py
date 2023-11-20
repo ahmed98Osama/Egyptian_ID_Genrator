@@ -113,6 +113,7 @@ st.title("Egyptian ID Generator")
 if st.sidebar.button("Randomize Parameters"):
     st.cache_resource.clear()
     randomize_parameters.clear()
+    time.sleep(10)
     if not st.cache_resource:
         # Execute the function
         randomize_parameters() 
@@ -120,7 +121,7 @@ if st.sidebar.button("Randomize Parameters"):
         # Print a message
         st.write("The cache is not cleared yet.")
         # Wait for 1 second
-        time.sleep(10)
+        
         randomize_parameters() 
 
 
