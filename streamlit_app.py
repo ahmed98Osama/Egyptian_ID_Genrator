@@ -40,6 +40,7 @@ weights = [2, 7, 6, 5, 4, 3, 2, 7, 6, 5, 4, 3, 2]
 
 # Function to randomize parameters
 @st.cache_data
+@st.cache_resource
 def randomize_parameters():
     Year = random.randint(1960, 2005)
     Month = random.randint(1, 12)
@@ -108,8 +109,8 @@ def generate_egyptian_ids(num_ids=10):
 st.title("Egyptian ID Generator")
 # Add a "Randomize" button
 if st.sidebar.button("Randomize Parameters"):
-    randomize_parameters.clear()
     st.cache_resource.clear()
+    randomize_parameters.clear()
     randomize_parameters()
 
 
