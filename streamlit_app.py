@@ -1,6 +1,8 @@
 
 import streamlit as st
 import random
+import asyncio
+import time
 
 
 # Egyptian governorate codes and names
@@ -111,11 +113,15 @@ st.title("Egyptian ID Generator")
 if st.sidebar.button("Randomize Parameters"):
     st.cache_resource.clear()
     randomize_parameters.clear()
-    randomize_parameters.clear()
-    st.cache_resource.clear()
-    randomize_parameters()
-    st.cache_resource.clear()
-    randomize_parameters.clear()
+    if not st.cache_resource:
+        # Execute the function
+        randomize_parameters() 
+    else:
+    # Print a message
+    st.write("The cache is not cleared yet.")
+    # Wait for 1 second
+    time.sleep(1)
+    randomize_parameters() 
 
 
 num_ids = st.sidebar.slider("Number of IDs to generate", 1, 100, 10, key="num_ids_slider")
