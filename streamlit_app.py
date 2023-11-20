@@ -111,6 +111,8 @@ st.title("Egyptian ID Generator")
 if st.sidebar.button("Randomize Parameters"):
     st.cache_resource.clear()
     randomize_parameters.clear()
+    randomize_parameters.clear()
+    st.cache_resource.clear()
     randomize_parameters()
     st.cache_resource.clear()
     randomize_parameters.clear()
