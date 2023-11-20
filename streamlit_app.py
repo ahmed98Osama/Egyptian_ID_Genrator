@@ -37,13 +37,19 @@ states = {
 # Weights for check digit calculation
 weights = [2, 7, 6, 5, 4, 3, 2, 7, 6, 5, 4, 3, 2]
 
-year = st.sidebar.slider("Year", 1950, 2005, key="year_slider")
-month = st.sidebar.slider("Month", 1, 12, key="month_slider")
-day = st.sidebar.slider("Day", 1, 28, key="day_slider")
+Year = str(random.randint(1950, 2005))
+Month = str(random.randint(1, 12)).zfill(2)
+Day = str(random.randint(1, 28)).zfill(2)
+Governorate = random.choice(list(states.keys()))
+Gender = str(random.randint(0, 9))
 
-governorate_dropdown = st.sidebar.selectbox("Governorate", list(states.values()), key="governorate_dropdown")
+year = st.sidebar.slider("Year", 1950, 2005,Year, key="year_slider")
+month = st.sidebar.slider("Month", 1, 12,Month, key="month_slider")
+day = st.sidebar.slider("Day", 1, 28,Day, key="day_slider")
 
-gender_radio = st.sidebar.radio("Gender", ['Male', 'Female'], key="gender_radio")
+governorate_dropdown = st.sidebar.selectbox("Governorate", list(states.values()),Governorate, key="governorate_dropdown")
+
+gender_radio = st.sidebar.radio("Gender", ['Male', 'Female'],Gender, key="gender_radio")
 
 def generate_id_without_check_digit():
 
