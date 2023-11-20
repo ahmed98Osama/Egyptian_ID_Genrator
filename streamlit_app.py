@@ -119,7 +119,11 @@ def generate_egyptian_ids(num_ids=10):
 
 
 # Streamlit app
-st.title("Egyptian ID Generator")
+st.title("<h1><span style='color: red'>Egyptian</span> <span style='color: gold'> ID</span><span style='color: white'> Number</span><span style='color: black'> Generator </span></h1>")
+st.write(
+    "<h6>Created by  <a href='https://github.com/ahmed98Osama' style='color: skyblue' target='_blank'>Ahmed Osama</a>,  and assisted by <span style='color: #1b8266'>ChatGPT</span>.</h6>",
+    unsafe_allow_html=True,
+)
 # Add a "Randomize" button
 if st.sidebar.button("Randomize Parameters"):
     st.cache_resource.clear()
@@ -141,7 +145,4 @@ for idx, id_number in enumerate(generated_ids):
     columns[idx % num_columns].write(f"Generated ID : {id_number}")
 
 
-st.write(
-    "<h6>Created by  <a href='https://github.com/ahmed98Osama' style='color: skyblue' target='_blank'>Ahmed Osama</a>,  and assisted by <span style='color: #1b8266'>ChatGPT</span>.</h6>",
-    unsafe_allow_html=True,
-)
+
