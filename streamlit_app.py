@@ -47,6 +47,8 @@ def randomize_parameters():
     random_governorate = random.choice(governorate_values)
     Government=governorate_values.index(random_governorate)
     Gender = random.randint(0, 1)
+    st.cache_resource.clear()
+    randomize_parameters()
     return Year,Month,Day,Government,Gender
     
 
@@ -107,9 +109,8 @@ def generate_egyptian_ids(num_ids=10):
 st.title("Egyptian ID Generator")
 # Add a "Randomize" button
 if st.sidebar.button("Randomize Parameters"):
-    #randomize_parameters.clear()
-    st.cache_resource.clear()
-    randomize_parameters()
+    randomize_parameters.clear()
+
 
 num_ids = st.sidebar.slider("Number of IDs to generate", 1, 100, 10, key="num_ids_slider")
 generated_ids = generate_egyptian_ids(num_ids)
