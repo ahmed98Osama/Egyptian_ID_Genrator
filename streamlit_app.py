@@ -3,7 +3,7 @@ import streamlit as st
 import random
 import asyncio
 import time
-
+import pyautogui
 
 # Egyptian governorate codes and names
 states = {
