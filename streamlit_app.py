@@ -40,7 +40,7 @@ weights = [2, 7, 6, 5, 4, 3, 2, 7, 6, 5, 4, 3, 2]
 # Function to randomize parameters
 @st.cache_data
 def randomize_parameters():
-    Year = random.randint(1980, 2005)
+    Year = random.randint(1960, 2005)
     Month = random.randint(1, 12)
     Day = random.randint(1, 28)
     governorate_values = list(states.keys())
