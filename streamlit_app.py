@@ -40,14 +40,14 @@ weights = [2, 7, 6, 5, 4, 3, 2, 7, 6, 5, 4, 3, 2]
 Year = random.randint(1950, 2005)
 Month = random.randint(1, 12)
 Day = random.randint(1, 28)
-Governorate = random.choice(list(states.keys()))
+random_governorate = random.choice(list(states.keys()))
 Gender = random.randint(0, 9)
 
 year = st.sidebar.slider("Year", 1950, 2005, key="year_slider",value=Year)
 month = st.sidebar.slider("Month", 1, 12, key="month_slider",value=Month)
 day = st.sidebar.slider("Day", 1, 28, key="day_slider",value=Day)
 
-governorate_dropdown = st.sidebar.selectbox("Governorate", list(states.values()), key="governorate_dropdown",value=Governorate)
+governorate_dropdown = st.sidebar.selectbox("Governorate", list(states.values()), key="governorate_dropdown",index=random_governorate)
 
 gender_radio = st.sidebar.radio("Gender", ['Male', 'Female'], key="gender_radio",value=Gender)
 
