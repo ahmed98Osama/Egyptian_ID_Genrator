@@ -120,7 +120,7 @@ if st.sidebar.button("Randomize Parameters"):
         # Print a message
         st.write("The cache is not cleared yet.")
         # Wait for 1 second
-        time.sleep(3)
+        time.sleep(10)
         randomize_parameters() 
 
 
