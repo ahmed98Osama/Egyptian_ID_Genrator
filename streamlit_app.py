@@ -139,3 +139,9 @@ for idx, id_number in enumerate(generated_ids):
     # governorate_name = states[id_number[7:9]]
     # st.write(f"Generated ID {idx}: {id_number} - Governorate: {governorate_name}")
     columns[idx % num_columns].write(f"Generated ID : {id_number}")
+
+
+st.write(
+    "<h6>Created by  <a href='https://github.com/ahmed98Osama' style='color: skyblue' target='_blank'>Ahmed Osama</a>,  and assisted by <span style='color: #1b8266'>ChatGPT</span>.</h6>",
+    unsafe_allow_html=True,
+)
