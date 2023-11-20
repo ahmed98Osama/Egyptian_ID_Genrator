@@ -118,5 +118,6 @@ generated_ids = generate_egyptian_ids(num_ids)
 
 st.write("Generated IDs:")
 for idx, id_number in enumerate(generated_ids, start=1):
-    governorate_name = states[id_number[7:9]]
-    st.write(f"Generated ID {idx}: {id_number} - Governorate: {governorate_name}")
+    #governorate_name = states[id_number[7:9]]
+    #st.write(f"Generated ID {idx}: {id_number} - Governorate: {governorate_name}")
+    st.write(id_number )
