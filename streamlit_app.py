@@ -43,13 +43,13 @@ Day = str(random.randint(1, 28)).zfill(2)
 Governorate = random.choice(list(states.keys()))
 Gender = str(random.randint(0, 9))
 
-year = st.sidebar.slider("Year", 1950, 2005,value=Year, key="year_slider")
-month = st.sidebar.slider("Month", 1, 12,value=Month, key="month_slider")
-day = st.sidebar.slider("Day", 1, 28,value=Day, key="day_slider")
+year = st.sidebar.slider("Year", 1950, 2005, key="year_slider",value=Year)
+month = st.sidebar.slider("Month", 1, 12, key="month_slider",value=Month)
+day = st.sidebar.slider("Day", 1, 28, key="day_slider",value=Day)
 
-governorate_dropdown = st.sidebar.selectbox("Governorate", list(states.values()),value=Governorate, key="governorate_dropdown")
+governorate_dropdown = st.sidebar.selectbox("Governorate", list(states.values()), key="governorate_dropdown",value=Governorate)
 
-gender_radio = st.sidebar.radio("Gender", ['Male', 'Female'],value=Gender, key="gender_radio")
+gender_radio = st.sidebar.radio("Gender", ['Male', 'Female'], key="gender_radio",value=Gender)
 
 def generate_id_without_check_digit():
 
