@@ -112,6 +112,8 @@ if st.sidebar.button("Randomize Parameters"):
     st.cache_resource.clear()
     randomize_parameters.clear()
     randomize_parameters()
+    st.cache_resource.clear()
+    randomize_parameters.clear()
 
 
 num_ids = st.sidebar.slider("Number of IDs to generate", 1, 100, 10, key="num_ids_slider")
