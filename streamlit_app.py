@@ -46,7 +46,7 @@ governorate_values = list(states.keys())
 random_governorate = random.choice(governorate_values)
 
 
-Gender = random.randint(0, 9)
+Gender = random.randint(0, 1)
 
 year = st.sidebar.slider("Year", 1950, 2005, key="year_slider",value=Year)
 month = st.sidebar.slider("Month", 1, 12, key="month_slider",value=Month)
@@ -54,7 +54,7 @@ day = st.sidebar.slider("Day", 1, 28, key="day_slider",value=Day)
 
 governorate_dropdown = st.sidebar.selectbox("Governorate", list(states.values()), key="governorate_dropdown",index=governorate_values.index(random_governorate))
 
-gender_radio = st.sidebar.radio("Gender", ['Male', 'Female'], key="gender_radio",value=Gender)
+gender_radio = st.sidebar.radio("Gender", ['Male', 'Female'], key="gender_radio",index=Gender)
 
 def generate_id_without_check_digit():
 
