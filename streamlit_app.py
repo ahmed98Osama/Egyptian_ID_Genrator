@@ -37,11 +37,11 @@ states = {
 # Weights for check digit calculation
 weights = [2, 7, 6, 5, 4, 3, 2, 7, 6, 5, 4, 3, 2]
 
-Year = str(random.randint(1950, 2005))
-Month = str(random.randint(1, 12)).zfill(2)
-Day = str(random.randint(1, 28)).zfill(2)
+Year = random.randint(1950, 2005)
+Month = random.randint(1, 12)
+Day = random.randint(1, 28)
 Governorate = random.choice(list(states.keys()))
-Gender = str(random.randint(0, 9))
+Gender = random.randint(0, 9)
 
 year = st.sidebar.slider("Year", 1950, 2005, key="year_slider",value=Year)
 month = st.sidebar.slider("Month", 1, 12, key="month_slider",value=Month)
