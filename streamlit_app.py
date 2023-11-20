@@ -39,7 +39,7 @@ states = {
 weights = [2, 7, 6, 5, 4, 3, 2, 7, 6, 5, 4, 3, 2]
 
 # Function to randomize parameters
-@st.cache_data
+@st.cache(allow_output_mutation=True, ignore_hash=True)
 @st.cache_resource
 def randomize_parameters():
     Year = random.randint(1960, 2005)
