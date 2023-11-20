@@ -113,10 +113,11 @@ st.title("Egyptian ID Generator")
 if st.sidebar.button("Randomize Parameters"):
     st.cache_resource.clear()
     randomize_parameters.clear()
-    time.sleep(10)
+    #time.sleep(10)
+    #await asyncio.sleep(1)
     # Execute the function
     randomize_parameters()
-    generate_egyptian_ids(num_ids)
+    generate_egyptian_ids()
 
 
 
